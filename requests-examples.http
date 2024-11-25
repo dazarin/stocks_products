@@ -1,0 +1,154 @@
+# примеры API-запросов
+
+@baseUrl = http://localhost:8000/api/v1
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Помидор",
+  "description": "Лучшие помидоры на рынке"
+}
+
+###
+
+# обновление продукта
+PATCH {{baseUrl}}/products/1/
+Content-Type: application/json
+
+{
+  "description": "Самые сочные и ароматные помидорки"
+}
+
+###
+# поиск продуктов по названию и описанию
+GET {{baseUrl}}/products/?search=помидор
+Content-Type: application/json
+
+###
+
+# удаление продукта
+DELETE {{baseUrl}}/products/1/
+Content-Type: application/json
+
+###
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Огурцы",
+  "description": "Лучшие огуречики"
+}
+
+###
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Фейхоа",
+  "description": "Лучшая фейхоа на рынке"
+}
+
+###
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Тархун",
+  "description": "Лучший тархун"
+}
+
+###
+
+# получение продуктов
+GET {{baseUrl}}/products/
+Content-Type: application/json
+
+###
+
+# обновление продукта
+PATCH {{baseUrl}}/products/3/
+Content-Type: application/json
+
+{
+  "description": "Самый лучший тархун"
+}
+
+###
+
+# поиск продуктов по названию и описанию
+GET {{baseUrl}}/products/?search=арх
+Content-Type: application/json
+
+###
+
+# создание склада
+POST {{baseUrl}}/stocks/
+Content-Type: application/json
+
+{
+  "address": "Фуд Сити",
+  "positions": [
+    {
+      "product": 2,
+      "quantity": 500,
+      "price": 55.50
+    },
+    {
+      "product": 3,
+      "quantity": 300,
+      "price": 330
+    }
+  ]
+}
+
+###
+
+# создание склада 2
+POST {{baseUrl}}/stocks/
+Content-Type: application/json
+
+{
+  "address": "Красная площадь, д. 1",
+  "positions": [
+    {
+      "product": 4,
+      "quantity": 250,
+      "price": 120.50
+    }
+  ]
+}
+
+###
+
+# обновляем записи на складе
+PATCH {{baseUrl}}/stocks/3/
+Content-Type: application/json
+
+{
+  "positions": [
+    {
+      "product": 2,
+      "quantity": 100,
+      "price": 130.80
+    },
+    {
+      "product": 3,
+      "quantity": 243,
+      "price": 145
+    }
+  ]
+}
+
+###
+
+# поиск складов, где есть определенный продукт
+GET {{baseUrl}}/stocks/?products=4
+Content-Type: application/json
